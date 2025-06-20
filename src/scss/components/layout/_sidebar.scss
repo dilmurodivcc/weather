@@ -1,0 +1,167 @@
+.home .sidebar {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  width: 25vw;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  transition: all 0.3 ease;
+  .search-bar {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    padding: 8px 10px;
+    input {
+      width: 100%;
+      background: transparent;
+      border-radius: 24px;
+      padding: 8px 10px;
+      border: none;
+      font-size: 1.1rem;
+      outline: none;
+      color: #fff;
+    }
+    .search-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: 8px;
+      svg {
+        display: block;
+      }
+    }
+    .suggestion-list {
+      position: absolute;
+      top: 110%;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+      backdrop-filter: blur(18px) saturate(180%);
+      -webkit-backdrop-filter: blur(18px) saturate(180%);
+      z-index: 100;
+      color: #fff;
+      max-height: 260px;
+      overflow-y: auto;
+      transform: translateY(10px) scale(0.98);
+      // pointer-events: none;
+      transition: opacity 0.28s cubic-bezier(0.4, 2, 0.6, 1),
+      transform 0.28s cubic-bezier(0.4, 2, 0.6, 1);
+      padding: 8px 0;
+      margin: 0 auto;
+      animation: fadeDown 0.35s cubic-bezier(0.4, 2, 0.6, 1);
+      &.show {
+        opacity: 1;       
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+      }
+      .suggestion-item {
+        padding: 12px 22px;
+        cursor: pointer;
+        border-radius: 18px;
+        font-size: 1.08rem;
+        color: #fff;
+        background: transparent;
+        transition: background 0.18s, color 0.18s;
+        &:hover {
+          background: rgba(255, 255, 255, 0.45);
+          color: #494949;
+        }
+        &.selected {
+          background: #0077ff;
+          color: #fff;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  .sidebar-content {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    transition: filter 0.2s;
+  }
+  .city-list {
+    margin-bottom: 1.2rem;
+    height: 100vh ;
+    overflow: auto;
+    scrollbar-width: none;
+    border-radius: 12px;
+    position: relative;
+    z-index: -20;
+
+    .city-item {
+      padding: 10px 0 10px 10px;
+      color: #fff;
+      cursor: pointer;
+      opacity: 0.85;
+      border-radius: 12px;
+      transition: background 0.18s, color 0.18s;
+      margin-bottom: 6px;
+      font-size: 18px;
+      text-shadow: 0 2px 3px rgba(0, 0, 0, 0.07);
+      &:hover,
+      &.selected {
+        background: rgba(255, 255, 255, 0.13);
+        color: #fff;
+        font-weight: 600;
+        opacity: 1;
+      }
+    }
+  }
+  .weather-detail {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    padding: 18px 18px 12px 18px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    color: #fff;
+    align-items: end;
+    justify-content: end;
+    margin-top: 200px;
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      letter-spacing: 0.5px;
+    }
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      color: #fff;
+      font-size: 1.08rem;
+    }
+  }
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-18px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

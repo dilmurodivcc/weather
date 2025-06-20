@@ -3,7 +3,13 @@ import axios from 'axios';
 export interface WeatherData {
   name: string;
   weather: { description: string }[];
-  main: { temp: number };
+  main: {
+    temp: number;
+    humidity: number;
+    pressure: number;
+  };
+  clouds: { all: number };
+  wind: { speed: number };
 }
 
 const API_URL = import.meta.env.VITE_WEATHER_API_URL;

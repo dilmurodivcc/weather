@@ -1,15 +1,22 @@
 .lang-dropdown-wrapper {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 2rem;
 }
 
 .lang-dropdown {
   position: relative;
-  width: 140px;
+  width: max-content;
   border-radius: 50px;
-  background: #fff;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+
   cursor: pointer;
   user-select: none;
   transition: box-shadow 0.2s;
@@ -17,40 +24,37 @@
   display: flex;
   align-items: center;
   min-height: 44px;
+  transition: all 0.3 ease !important;
   &:hover,
   &.open {
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.13);
+    box-shadow: inset -10px -10px 26px rgba(255, 255, 255, 0.248);
   }
 }
 
 .lang-selected {
   flex: 1;
   font-weight: 500;
-  color: #222;
-}
-
-.lang-arrow {
-  width: 0;
-  height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-top: 7px solid #888;
-  margin-left: 10px;
-  transition: transform 0.3s cubic-bezier(0.4, 2, 0.6, 1);
-}
-
-.lang-dropdown.open .lang-arrow {
-  transform: rotate(-180deg);
+  color: #ffff;
 }
 
 .lang-options {
   position: absolute;
   left: 0;
   top: 110%;
-  width: 100%;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.13);
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border-radius: 22px;
   opacity: 0;
   padding: 5px;
   pointer-events: none;
@@ -69,17 +73,18 @@
 .lang-option {
   padding: 0.7rem 1.2rem;
   cursor: pointer;
-  border-radius: 20px;
-  color: #222;
+  border-radius: 18px;
+  color: #fff;
+
   font-size: 1rem;
-  transition: background 0.18s, color 0.18s;
+  transition: all 0.18s, color 0.18s;
   &:hover {
-    background: #f2f2f2;
-    color: #0077ff;
+    transform: translate(10px);
   }
   &.selected {
-    background: #0077ff;
-    color: #fff;
+    background: rgba($color: #fff, $alpha: 0.7);
+    color: #000;
     font-weight: 600;
+    transform: none !important;
   }
 }
