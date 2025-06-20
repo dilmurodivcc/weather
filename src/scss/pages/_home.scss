@@ -1,0 +1,25 @@
+.home {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  &.sun {
+    background-image: url(/public/sun.webp);
+  }
+  &.dark {
+    background-image: url(/public/dark.webp);
+  }
+  .overlay {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+  }
+  .content {
+    position: relative;
+    z-index: 10;
+    
+  }
+}
