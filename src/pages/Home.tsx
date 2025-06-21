@@ -174,18 +174,31 @@ const Home = () => {
             </button>
           </div>
 
-          {weather && (
-            <div className="main-info">
-              <p className="temp">
-                {weather.main.temp.toFixed(0)} <span>°</span>
-              </p>
-              <div className="right">
-                <h2>{translatedSelectedCity}</h2>
-                <span className="date-time">{getFormattedDate()}</span>
-                <p>{weather.weather[0].description}</p>
-              </div>
-            </div>
-          )}
+          <div className="main-info">
+            {weather ? (
+              <>
+                <p className="temp">
+                  {weather.main.temp.toFixed(0)} <span>°</span>
+                </p>
+                <div className="right">
+                  <h2>{translatedSelectedCity}</h2>
+                  <span className="date-time">{getFormattedDate()}</span>
+                  <p>{weather.weather[0].description}</p>
+                </div>
+              </>
+            ) : (
+              <>
+                <p className="temp">
+                  --<span>°</span>
+                </p>
+                <div className="right">
+                  <h2>{translatedSelectedCity}</h2>
+                  <span className="date-time">{getFormattedDate()}</span>
+                  <p>Loading weather...</p>
+                </div>
+              </>
+            )}
+          </div>
 
           <div className="sidebar">
             <div
