@@ -6,19 +6,42 @@
     "humidity": "Nem",
     "wind": "Rüzgar",
     "pressure": "Basınç",
-    "cities": [
-        "Taşkent",
-        "Andican",
-        "Buhara",
-        "Fergana",
-        "Cizzak",
-        "Namangan",
-        "Navai",
-        "Karakalpakistan",
-        "Kaşkaderya",
-        "Semerkant",
-        "Sirderya",
-        "Surhanderya",
-        "Harezm"
+    "cities": {
+        "Tashkent": "Taşkent",
+        "Andijan": "Andican",
+        "Bukhara": "Buhara",
+        "Fergana": "Fergana",
+        "Jizzakh": "Cizzak",
+        "Namangan": "Namangan",
+        "Navoi": "Navai",
+        "Nukus": "Nukus",
+        "Karshi": "Karşi",
+        "Samarkand": "Semerkant",
+        "Gulistan": "Gülistan",
+        "Termez": "Tirmiz",
+        "Urgench": "Urgenç"
+    },
+    "weekdays": [
+        "Pazar",
+        "Pazartesi",
+        "Salı",
+        "Çarşamba",
+        "Perşembe",
+        "Cuma",
+        "Cumartesi"
+    ],
+    "months": [
+        "Oca",
+        "Şub",
+        "Mar",
+        "Nis",
+        "May",
+        "Haz",
+        "Tem",
+        "Ağu",
+        "Eyl",
+        "Eki",
+        "Kas",
+        "Ara"
     ]
 }

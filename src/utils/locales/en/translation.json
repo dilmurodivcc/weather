@@ -6,19 +6,42 @@
   "humidity": "Humidity",
   "wind": "Wind",
   "pressure": "Pressure",
-  "cities": [
-    "Tashkent",
-    "Andijan",
-    "Bukhara",
-    "Fergana",
-    "Jizzakh",
-    "Namangan",
-    "Navoi",
-    "Karakalpakstan",
-    "Kashkadarya",
-    "Samarkand",
-    "Sirdarya",
-    "Surkhandarya",
-    "Khorezm"
+  "cities": {
+    "Tashkent": "Tashkent",
+    "Andijan": "Andijan",
+    "Bukhara": "Bukhara",
+    "Fergana": "Fergana",
+    "Jizzakh": "Jizzakh",
+    "Namangan": "Namangan",
+    "Navoi": "Navoi",
+    "Nukus": "Nukus",
+    "Karshi": "Karshi",
+    "Samarkand": "Samarkand",
+    "Gulistan": "Gulistan",
+    "Termez": "Termez",
+    "Urgench": "Urgench"
+  },
+  "weekdays": [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ],
+  "months": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
   ]
 }

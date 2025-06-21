@@ -8,19 +8,42 @@
   "humidity": "Namlik",
   "wind": "Shamol",
   "pressure": "Bosim",
-  "cities": [
-    "Toshkent",
-    "Andijon",
-    "Buxoro",
-    "Farg'ona",
-    "Jizzax",
-    "Namangan",
-    "Navoiy",
-    "Qoraqalpog'iston",
-    "Qashqadaryo",
-    "Samarqand",
-    "Sirdaryo",
-    "Surxondaryo",
-    "Xorazm"
+  "cities": {
+    "Tashkent": "Toshkent",
+    "Andijan": "Andijon",
+    "Bukhara": "Buxoro",
+    "Fergana": "Farg'ona",
+    "Jizzakh": "Jizzax",
+    "Namangan": "Namangan",
+    "Navoi": "Navoiy",
+    "Nukus": "Nukus",
+    "Karshi": "Qarshi",
+    "Samarkand": "Samarqand",
+    "Gulistan": "Guliston",
+    "Termez": "Termiz",
+    "Urgench": "Urganch"
+  },
+  "weekdays": [
+    "Yakshanba",
+    "Dushanba",
+    "Seshanba",
+    "Chorshanba",
+    "Payshanba",
+    "Juma",
+    "Shanba"
+  ],
+  "months": [
+    "Yan",
+    "Fev",
+    "Mar",
+    "Apr",
+    "May",
+    "Iyun",
+    "Iyul",
+    "Avg",
+    "Sen",
+    "Okt",
+    "Noy",
+    "Dek"
   ]
 }

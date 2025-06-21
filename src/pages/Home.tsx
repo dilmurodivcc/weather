@@ -18,6 +18,7 @@ const languages = [
 const Home = () => {
   const { i18n, t } = useTranslation();
   const [weather, setWeather] = useState<WeatherData | null>(null);
+  const [isReloading, setIsReloading] = useState(false);
   const lang = useLanguageStore((state) => state.lang);
   const setLang = useLanguageStore((state) => state.setLang);
 
@@ -33,6 +34,17 @@ const Home = () => {
   const handleSelect = (code: string) => {
     changeLang(code);
     setOpen(false);
+  };
+
+  const handleReload = () => {
+    if (isReloading) return;
+    setIsReloading(true);
+    fetchWeather({ city: selectedCity, lang })
+      .then(setWeather)
+      .catch(console.error)
+      .finally(() => {
+        setTimeout(() => setIsReloading(false), 700);
+      });
   };
 
   const [search, setSearch] = useState("");
@@ -108,29 +120,8 @@ const Home = () => {
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, "0");
     const minutes = now.getMinutes().toString().padStart(2, "0");
-    const days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
+    const days = t("weekdays", { returnObjects: true }) as string[];
+    const months = t("months", { returnObjects: true }) as string[];
     const dayName = days[now.getDay()];
     const day = now.getDate();
     const month = months[now.getMonth()];
@@ -139,6 +130,9 @@ const Home = () => {
       day < 10 ? "0" + day : day
     } ${month} '${year}`;
   };
+
+  const cities = t("cities", { returnObjects: true }) as Record<string, string>;
+  const translatedSelectedCity = cities[selectedCity] || selectedCity;
 
   return (
     <>
@@ -171,8 +165,12 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <button className="reload">
-              <i className="fa-solid fa-arrow-rotate-right"></i>
+            <button className="reload" onClick={handleReload}>
+              <i
+                className={`fa-solid fa-arrow-rotate-right ${
+                  isReloading ? "reloading" : ""
+                }`}
+              ></i>
             </button>
           </div>
 
@@ -182,7 +180,7 @@ const Home = () => {
                 {weather.main.temp.toFixed(0)} <span>°</span>
               </p>
               <div className="right">
-                <h2>{weather.name}</h2>
+                <h2>{translatedSelectedCity}</h2>
                 <span className="date-time">{getFormattedDate()}</span>
                 <p>{weather.weather[0].description}</p>
               </div>
@@ -246,19 +244,17 @@ const Home = () => {
             </div>
             <div className="sidebar-content">
               <div className="city-list">
-                {(t("cities", { returnObjects: true }) as string[]).map(
-                  (city) => (
-                    <div
-                      key={city}
-                      className={`city-item${
-                        city === selectedCity ? " selected" : ""
-                      }`}
-                      onClick={() => setSelectedCity(city)}
-                    >
-                      {city}
-                    </div>
-                  )
-                )}
+                {Object.entries(cities).map(([cityKey, translatedCity]) => (
+                  <div
+                    key={cityKey}
+                    className={`city-item${
+                      cityKey === selectedCity ? " selected" : ""
+                    }`}
+                    onClick={() => setSelectedCity(cityKey)}
+                  >
+                    {translatedCity}
+                  </div>
+                ))}
               </div>
               <div className="weather-detail">
                 <h2>{t("weather_detail")}</h2>
