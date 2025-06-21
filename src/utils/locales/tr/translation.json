@@ -1,0 +1,24 @@
+{
+    "another_location": "Başka bir yer",
+    "not_found": "Bulunamadı",
+    "weather_detail": "Hava Durumu Detayları",
+    "cloudy": "Bulutlu",
+    "humidity": "Nem",
+    "wind": "Rüzgar",
+    "pressure": "Basınç",
+    "cities": [
+        "Taşkent",
+        "Andican",
+        "Buhara",
+        "Fergana",
+        "Cizzak",
+        "Namangan",
+        "Navai",
+        "Karakalpakistan",
+        "Kaşkaderya",
+        "Semerkant",
+        "Sirderya",
+        "Surhanderya",
+        "Harezm"
+    ]
+}

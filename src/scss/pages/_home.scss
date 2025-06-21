@@ -5,10 +5,10 @@
   background-position: center;
   background-size: cover;
   position: relative;
-  &.dark {
+  &.sunny {
     background-image: url(/public/sun.webp);
   }
-  &.sun {
+  &.cloudy {
     background-image: url(/public/dark.webp);
   }
   .overlay {

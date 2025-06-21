@@ -1,5 +1,26 @@
 {
-    "welcome": "Do‘konimizga xush kelibsiz",
-    "add_to_cart": "Savatchaga qo‘shish"
-  }
-  
+  "welcome": "Do‘konimizga xush kelibsiz",
+  "add_to_cart": "Savatchaga qo‘shish",
+  "another_location": "Boshqa joy",
+  "not_found": "Topilmadi",
+  "weather_detail": "Ob-havo ma'lumotlari",
+  "cloudy": "Bulutli",
+  "humidity": "Namlik",
+  "wind": "Shamol",
+  "pressure": "Bosim",
+  "cities": [
+    "Toshkent",
+    "Andijon",
+    "Buxoro",
+    "Farg'ona",
+    "Jizzax",
+    "Namangan",
+    "Navoiy",
+    "Qoraqalpog'iston",
+    "Qashqadaryo",
+    "Samarqand",
+    "Sirdaryo",
+    "Surxondaryo",
+    "Xorazm"
+  ]
+}

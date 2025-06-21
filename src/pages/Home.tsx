@@ -1,9 +1,8 @@
 import { useTranslation } from "react-i18next";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { fetchWeather } from "../service/API";
 import type { WeatherData } from "../service/API";
 import { useLanguageStore } from "../store/languageStore";
-import { uzbekistanCities } from "../constants/uzbekistanCities";
 import axios from "axios";
 
 const languages = [
@@ -17,7 +16,7 @@ const languages = [
 ];
 
 const Home = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const lang = useLanguageStore((state) => state.lang);
   const setLang = useLanguageStore((state) => state.setLang);
@@ -42,6 +41,14 @@ const Home = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchBarRef = useRef<HTMLDivElement>(null);
+
+  const weatherTheme = useMemo(() => {
+    if (!weather) return "sunny";
+    if (weather.clouds.all > 50 || weather.main.temp < 10) {
+      return "cloudy";
+    }
+    return "sunny";
+  }, [weather]);
 
   const handleSearch = () => {
     if (search.trim()) {
@@ -77,8 +84,6 @@ const Home = () => {
     }, 400);
     return () => clearTimeout(timeout);
   }, [search]);
-
-
 
   useEffect(() => {
     fetchWeather({ city: selectedCity, lang })
@@ -137,7 +142,7 @@ const Home = () => {
 
   return (
     <>
-      <main className="home dark">
+      <main className={`home ${weatherTheme}`}>
         <div className="overlay"></div>
         <div className="content">
           <div className="actions">
@@ -166,7 +171,9 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <button className="reload"><i className="fa-solid fa-arrow-rotate-right"></i></button>
+            <button className="reload">
+              <i className="fa-solid fa-arrow-rotate-right"></i>
+            </button>
           </div>
 
           {weather && (
@@ -191,7 +198,7 @@ const Home = () => {
               <input
                 ref={searchInputRef}
                 type="text"
-                placeholder="Another Location"
+                placeholder={t("another_location")}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 onKeyDown={handleInputKeyDown}
@@ -215,7 +222,7 @@ const Home = () => {
                 <div className={"suggestion-list show"}>
                   {suggestions.length === 0 ? (
                     <div className="suggestion-item" style={{ color: "#fff" }}>
-                      Topilmadi
+                      {t("not_found")}
                     </div>
                   ) : (
                     suggestions.map((s) => (
@@ -239,34 +246,36 @@ const Home = () => {
             </div>
             <div className="sidebar-content">
               <div className="city-list">
-                {uzbekistanCities.map((city) => (
-                  <div
-                    key={city}
-                    className={`city-item${
-                      city === selectedCity ? " selected" : ""
-                    }`}
-                    onClick={() => setSelectedCity(city)}
-                  >
-                    {city}
-                  </div>
-                ))}
+                {(t("cities", { returnObjects: true }) as string[]).map(
+                  (city) => (
+                    <div
+                      key={city}
+                      className={`city-item${
+                        city === selectedCity ? " selected" : ""
+                      }`}
+                      onClick={() => setSelectedCity(city)}
+                    >
+                      {city}
+                    </div>
+                  )
+                )}
               </div>
               <div className="weather-detail">
-                <h2>Weather Detail</h2>
+                <h2>{t("weather_detail")}</h2>
                 <div className="detail-row">
-                  <span>Cloudy</span>
+                  <span>{t("cloudy")}</span>
                   <span>{weather?.clouds?.all ?? 0}%</span>
                 </div>
                 <div className="detail-row">
-                  <span>Humidity</span>
+                  <span>{t("humidity")}</span>
                   <span>{weather?.main?.humidity ?? 0}%</span>
                 </div>
                 <div className="detail-row">
-                  <span>Wind</span>
+                  <span>{t("wind")}</span>
                   <span>{weather?.wind?.speed ?? 0} km/h</span>
                 </div>
                 <div className="detail-row">
-                  <span>Pressure</span>
+                  <span>{t("pressure")}</span>
                   <span>{weather?.main?.pressure ?? 0} hPa</span>
                 </div>
               </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { api, WeatherData } from '../service/API';
+import { api, type WeatherData } from '../service/API';
 
 interface UseWeatherParams {
   city: string;

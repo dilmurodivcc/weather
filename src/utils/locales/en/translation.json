@@ -1,5 +1,24 @@
 {
-    "welcome": "Welcome to our shop",
-    "add_to_cart": "Add to cart"
-  }
-  
+  "another_location": "Another Location",
+  "not_found": "Not found",
+  "weather_detail": "Weather Detail",
+  "cloudy": "Cloudy",
+  "humidity": "Humidity",
+  "wind": "Wind",
+  "pressure": "Pressure",
+  "cities": [
+    "Tashkent",
+    "Andijan",
+    "Bukhara",
+    "Fergana",
+    "Jizzakh",
+    "Namangan",
+    "Navoi",
+    "Karakalpakstan",
+    "Kashkadarya",
+    "Samarkand",
+    "Sirdarya",
+    "Surkhandarya",
+    "Khorezm"
+  ]
+}

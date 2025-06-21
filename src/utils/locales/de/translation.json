@@ -1,0 +1,24 @@
+{
+    "another_location": "Anderer Ort",
+    "not_found": "Nicht gefunden",
+    "weather_detail": "Wetterdetails",
+    "cloudy": "Bewölkt",
+    "humidity": "Feuchtigkeit",
+    "wind": "Wind",
+    "pressure": "Druck",
+    "cities": [
+        "Taschkent",
+        "Andijan",
+        "Buchara",
+        "Fergana",
+        "Jizzax",
+        "Namangan",
+        "Navoi",
+        "Karakalpakstan",
+        "Qashqadaryo",
+        "Samarkand",
+        "Sirdaryo",
+        "Surxondaryo",
+        "Choresm"
+    ]
+}

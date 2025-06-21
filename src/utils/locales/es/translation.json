@@ -1,0 +1,24 @@
+{
+    "another_location": "Otro lugar",
+    "not_found": "No encontrado",
+    "weather_detail": "Detalles del tiempo",
+    "cloudy": "Nublado",
+    "humidity": "Humedad",
+    "wind": "Viento",
+    "pressure": "Presión",
+    "cities": [
+        "Taskent",
+        "Andiyán",
+        "Bujará",
+        "Ferganá",
+        "Jizaj",
+        "Namangán",
+        "Navoi",
+        "Karakalpakistán",
+        "Kashkadar",
+        "Samarcanda",
+        "Sirdaria",
+        "Surjandarín",
+        "Corasmia"
+    ]
+}

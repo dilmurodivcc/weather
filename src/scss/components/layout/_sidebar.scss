@@ -27,6 +27,7 @@
     backdrop-filter: blur(18px) saturate(180%);
     -webkit-backdrop-filter: blur(18px) saturate(180%);
     padding: 8px 10px;
+    z-index: 1;
     input {
       width: 100%;
       background: transparent;
@@ -60,15 +61,17 @@
       color: #fff;
       max-height: 260px;
       overflow-y: auto;
+    scrollbar-width: none;
+
       transform: translateY(10px) scale(0.98);
       // pointer-events: none;
       transition: opacity 0.28s cubic-bezier(0.4, 2, 0.6, 1),
-      transform 0.28s cubic-bezier(0.4, 2, 0.6, 1);
+        transform 0.28s cubic-bezier(0.4, 2, 0.6, 1);
       padding: 8px 0;
       margin: 0 auto;
       animation: fadeDown 0.35s cubic-bezier(0.4, 2, 0.6, 1);
       &.show {
-        opacity: 1;       
+        opacity: 1;
         pointer-events: auto;
         transform: translateY(0) scale(1);
       }
@@ -103,12 +106,12 @@
   }
   .city-list {
     margin-bottom: 1.2rem;
-    height: 100vh ;
+    height: 400px;
     overflow: auto;
     scrollbar-width: none;
     border-radius: 12px;
     position: relative;
-    z-index: -20;
+    z-index: 0;
 
     .city-item {
       padding: 10px 0 10px 10px;
